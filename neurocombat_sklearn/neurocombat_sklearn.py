@@ -188,7 +188,7 @@ class CombatModel(BaseEstimator):
 
         # Sites
         if fitting:
-            self.site_encoder = OneHotEncoder(sparse=False)
+            self.site_encoder = OneHotEncoder(sparse_output=False)
             self.site_encoder.fit(sites)
 
         sites_design = self.site_encoder.transform(sites)
@@ -202,7 +202,7 @@ class CombatModel(BaseEstimator):
                 self.discrete_encoders = []
 
                 for i in range(n_discrete_covariates):
-                    discrete_encoder = OneHotEncoder(sparse=False)
+                    discrete_encoder = OneHotEncoder(sparse_output=False)
                     discrete_encoder.fit(discrete_covariates[:, i][:, np.newaxis])
                     self.discrete_encoders.append(discrete_encoder)
 
